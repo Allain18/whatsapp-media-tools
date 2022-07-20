@@ -10,7 +10,7 @@ with open("README.md", encoding="UTF-8") as readme_file:
 def version():
     """Return version string."""
 
-    return "0.1.0"
+    return "0.1.1"
 
 
 setup(
