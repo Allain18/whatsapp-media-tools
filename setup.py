@@ -39,13 +39,15 @@ setup(
         "Operating System :: OS Independent"
     ],
     python_requires=">=3.6",
-    entry_points={
-        "console_scripts": [
-            "restore-exif = restore_exif:caller",
-            "find-duplicate = find_duplicates:caller"
-        ]
-    },
+    py_modules=["restore_exif", "find_duplicates"],
     install_requires=[
         "piexif>=1.1.3",
-    ]
+    ],
+    entry_points={
+        "console_scripts":
+        [
+            "restore-exif = restore_exif:caller",
+            "find-duplicates = find_duplicates:caller"
+        ]
+    }
 )
