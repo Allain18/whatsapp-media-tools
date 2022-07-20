@@ -2,9 +2,14 @@
 Python scripts to manage WhatsApp media backups for archival purposes.
 
 ## Usage
+
+### Installation
+` pip install whatsapp_media_tools`
+
+
 ### Restoring exif dates
 ```
-usage: restore-exif.py [-h] [-r] [-m] path
+usage: restore-exif [-h] [-r] [-m] path
 
 Restore discarded Exif date information in WhatsApp media based on the filename. For videos, only the created and modified dates are set.
 
@@ -19,7 +24,7 @@ options:
 
 ### Finding duplicate media files
 ```
-usage: find-duplicates.py [-h] [-c CHUNK_SIZE] [-f] [-r] [--dry-run] path
+usage: find-duplicates [-h] [-c CHUNK_SIZE] [-f] [-r] [--dry-run] path
 
 Remove duplicated media, preserving the file with the shortest filename or earliest date encoded in the filename.
 
@@ -34,3 +39,8 @@ options:
   -r, --recursive       Recursively process media
   --dry-run             Dry run deletion (no files deleted)
   ```
+
+  # License
+  MIT License
+
+  Original work by [Will Ho](https://ikarus.sg/whatsapp-exif-dates-duplicates/)
