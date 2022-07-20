@@ -6,6 +6,11 @@ from datetime import datetime
 
 import piexif
 
+
+logging.basicConfig(
+    level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s: %(message)s')
+logger = logging.getLogger('restore-exif')
+
 img_filename_regex = re.compile(r'IMG-\d{8}-WA\d{4}\..+')
 vid_filename_regex = re.compile(r'VID-\d{8}-WA\d{4}\..+')
 
@@ -113,7 +118,7 @@ def main(path, recursive, mod):
     logger.info('Finished processing files')
 
 
-if __name__ == "__main__":
+def caller():
     parser = argparse.ArgumentParser(
         description=('Restore discarded Exif date information in WhatsApp media based on the filename. '
                      'For videos, only the created and modified dates are set.'))
@@ -124,8 +129,8 @@ if __name__ == "__main__":
                         action='store_true', help='Set file created/modified date on top of exif for images')
     args = parser.parse_args()
 
-    logging.basicConfig(
-        level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s: %(message)s')
-    logger = logging.getLogger('restore-exif')
-
     main(args.path, recursive=args.recursive, mod=args.mod)
+
+
+if __name__ == "__main__":
+    caller()

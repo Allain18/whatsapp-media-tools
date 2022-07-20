@@ -5,6 +5,11 @@ import os
 from collections import defaultdict
 
 
+logging.basicConfig(
+    level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s: %(message)s')
+logger = logging.getLogger('find-duplicates')
+
+
 def chunk_reader(fd, chunk_size):
     """Generator that reads a file in chunks of bytes"""
     while True:
@@ -163,7 +168,7 @@ def main(path, chunk_size, recursive, force, dry_run):
                     os.remove(f)
 
 
-if __name__ == "__main__":
+def caller():
     parser = argparse.ArgumentParser(
         description=('Remove duplicated media, preserving the file with the shortest filename'
                      'or earliest date encoded in the filename.'))
@@ -180,9 +185,9 @@ if __name__ == "__main__":
                         help='Dry run deletion (no files deleted)')
     args = parser.parse_args()
 
-    logging.basicConfig(
-        level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s: %(message)s')
-    logger = logging.getLogger('find-duplicates')
-
     main(args.path, args.chunk_size, args.recursive,
          force=args.force, dry_run=args.dry_run)
+
+
+if __name__ == "__main__":
+    caller()
