@@ -9,7 +9,7 @@ Python scripts to manage WhatsApp media backups for archival purposes.
 
 ### Restoring exif dates
 ```
-usage: restore-exif [-h] [-r] [-m] path
+usage: restore-exif [-h] [-r] [-m] [-v] path
 
 Restore discarded Exif date information in WhatsApp media based on the filename. For videos, only the created and modified dates are set.
 
@@ -20,11 +20,12 @@ options:
   -h, --help       show this help message and exit
   -r, --recursive  Recursively process media
   -m, --mod        Set file created/modified date on top of exif for images
+  -v, --version    show program's version number and exit
 ```
 
 ### Finding duplicate media files
 ```
-usage: find-duplicates [-h] [-c CHUNK_SIZE] [-f] [-r] [--dry-run] path
+usage: find-duplicates [-h] [-c CHUNK_SIZE] [-f] [-r] [--dry-run] [-v] path
 
 Remove duplicated media, preserving the file with the shortest filename or earliest date encoded in the filename.
 
@@ -38,6 +39,7 @@ options:
   -f, --force           Delete duplicates without prompting
   -r, --recursive       Recursively process media
   --dry-run             Dry run deletion (no files deleted)
+  -v, --version         show program's version number and exit
   ```
 
   # License
