@@ -6,6 +6,8 @@ from datetime import datetime
 
 import piexif
 
+from _version import __version__
+
 
 logging.basicConfig(
     level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s: %(message)s')
@@ -127,6 +129,8 @@ def caller():
                         action='store_true', help='Recursively process media')
     parser.add_argument('-m', '--mod', default=False,
                         action='store_true', help='Set file created/modified date on top of exif for images')
+    parser.add_argument('-v', '--version', action='version',
+                        version='%(prog)s {version}'.format(version=__version__))
     args = parser.parse_args()
 
     main(args.path, recursive=args.recursive, mod=args.mod)

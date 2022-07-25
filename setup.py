@@ -2,20 +2,16 @@
 
 from setuptools import setup
 
+from _version import __version__
+
 
 with open("README.md", encoding="UTF-8") as readme_file:
     README = readme_file.read()
 
 
-def version():
-    """Return version string."""
-
-    return "0.1.1"
-
-
 setup(
     name="whatsapp-media-tools",
-    version=version(),
+    version=__version__,
     description="Python scripts to manage WhatsApp media backups for archival purposes",
     long_description=README,
     long_description_content_type="text/markdown",

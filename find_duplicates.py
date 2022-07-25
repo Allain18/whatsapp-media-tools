@@ -4,6 +4,8 @@ import logging
 import os
 from collections import defaultdict
 
+from _version import __version__
+
 
 logging.basicConfig(
     level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s: %(message)s')
@@ -183,6 +185,8 @@ def caller():
                         action='store_true', help='Recursively process media')
     parser.add_argument('--dry-run', default=False, action='store_true',
                         help='Dry run deletion (no files deleted)')
+    parser.add_argument('-v', '--version', action='version',
+                        version='%(prog)s {version}'.format(version=__version__))
     args = parser.parse_args()
 
     main(args.path, args.chunk_size, args.recursive,
