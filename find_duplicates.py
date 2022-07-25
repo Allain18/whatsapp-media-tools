@@ -172,12 +172,12 @@ def main(path, chunk_size, recursive, force, dry_run):
 
 def caller():
     parser = argparse.ArgumentParser(
-        description=('Remove duplicated media, preserving the file with the shortest filename'
+        description=('Remove duplicated media, preserving the file with the shortest filename '
                      'or earliest date encoded in the filename.'))
     parser.add_argument('path', type=str, help='Path to WhatsApp media folder')
     parser.add_argument('-c', '--chunk-size', default=1024, type=int,
-                        help=('Chunk size for heuristic, smaller values are generally faster'
-                              'but if many files have identical starting chunks, performance'
+                        help=('Chunk size for heuristic, smaller values are generally faster '
+                              'but if many files have identical starting chunks, performance '
                               'degrades as more full hashes are computed'))
     parser.add_argument('-f', '--force', action='store_true',
                         help='Delete duplicates without prompting')
