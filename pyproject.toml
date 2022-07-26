@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whatsapp-media-tools"
+version = "0.1.2"
+authors = [
+  { name="Alain Girard", email="alaingirardvd@gmail.com" },
+]
+description="Python scripts to manage WhatsApp media backups for archival purposes"
+readme = "README.md"
+license = { file="licence" }
+requires-python = ">=3.6"
+keywords= ["whatsapp", "EXIF", "image"]
+dependencies = [
+    "piexif>=1.1.3",
+]
+classifiers = [
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Environment :: Console",
+        "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Allain18/whatsapp-media-tools"
+
+[tool.setuptools]
+py-modules = ["restore_exif", "find_duplicates", "_version"]
+
+[project.scripts]
+restore-exif = "restore_exif:caller"
+find-duplicates = "find_duplicates:caller"
